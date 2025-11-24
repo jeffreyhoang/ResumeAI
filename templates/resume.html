@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Resume</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page">
+        <div class="heading">
+            <div class="name-block">
+                <h1 class="name">{{ data.name }}</h1>
+            </div>
+
+            <div class="contact">
+                <p class="contact-item">{{ data.location }}</p>
+                <p class="contact-item">{{ data.email }}</p>
+                <p class="contact-item">{{ data.phone_number }}</p>
+                {% for link in data.links %}
+                    <p class="contact-item">{{ link }}</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% if data.introduction %}
+            <div class="section introduction">
+                <h2 class="section-title">Introduction</h2>
+                <div class="section-body">
+                    <p>{{ data.introduction }}</p>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if data.education %}
+            <div class="section education">
+                <h2 class="section-title">Education</h2>
+                <div class="section-body">
+                    {% for e in data.education %}
+                        <div class="item">
+                            <div class="item-title">
+                                <p><strong>{{ e.name }}</strong></p>
+                                <p>{{ e.start_date }} - {{ e.end_date}}</p>
+                            </div>
+                            <div class="major-gpa">
+                                <p>{{ e.degree }} in {{ e.major }}</p>
+                                <p>GPA: {{ e.gpa }}/4.0</p>
+                            </div>
+                            <div class="item-body">
+                                <ul>
+                                    <li><strong>Expected Graduation Date</strong>: {{ e.end_date }}</li>
+                                    {% if e.coursework %}
+                                        <li>
+                                            <strong>Relevant Coursework</strong>: {{ e.coursework | join(', ') }}
+                                        </li>
+                                    {% endif %}
+                                    {% if e.awards %}
+                                        <li>
+                                            <strong>Awards</strong>: {{ e.awards | join(', ') }}
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if data.experiences %}
+            <div class="section experiences">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-body">
+                    {% for e in data.experiences %}
+                        <div class="item">
+                            <div class="item-title">
+                                <p><strong>{{ e.title }}</strong></p>
+                                <p>{{ e.start_date}} - {{ e.end_date}}</p>
+                            </div>
+                            <div class="location">
+                                <p>{{ e.company }} | {{ e.location}}</p>
+                            </div>
+                            {% if e.supervisor.name %}
+                                <div class="supervisor">
+                                    <p>
+                                        <em>
+                                            Supervisor:<strong>{{ e.supervisor.name }}{% if e.supervisor.degree %}, {{ e.supervisor.degree }}{% endif %}</strong>{% if e.supervisor.title %}, {{ e.supervisor.title }}{% endif %}
+                                        </em>
+                                    </p>
+                                </div>
+                            {% endif %}
+                            <div class="item-body">
+                                <ul>
+                                    {% for d in e.description %}
+                                        <li>{{ d }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor%}
+                </div>
+            </div>
+        {% endif %}
+
+         {% if data.publications %}
+            <div class="section publications">
+                <h2 class="section-title">Publications</h2>
+                <div class="section-body">
+                    {% for p in data.publications %}
+                        <div class="item">
+                            <div class="item-title">
+                                <p><strong>{{ p.title }}</strong></p>
+                                <p>{{ p.date }}</p>
+                            </div>
+                            <div class="item-body">
+                                <ul>
+                                    <li><strong>Authors</strong>: {{ p.authors | join(', ') }}</li>
+                                    <li><strong>DOI</strong>: {{ p.doi }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if data.projects %}
+            <div class="section projects">
+                <h2 class="section-title">Projects</h2>
+                <div class="section-body">
+                    {% for p in data.projects %}
+                        <div class="item">
+                            <div class="item-title">
+                                <p><strong>{{ p.title }}</strong></p>
+                                <p>{{ p.start_date }} - {{ p.end_date }}</p>
+                            </div>
+                            {% if p.association.name %}
+                                <div class="location">
+                                    <p>{{ p.association.name }} | {{ p.association.location }}</p>
+                                </div>
+                            {% endif %}
+                            <div class="item-body">
+                                <ul>
+                                    {% for d in p.description %}
+                                        <li>{{ d }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if data.skills %}
+            <div class="section skills">
+                <h2 class="section-title">Skills</h2>
+                <div class="section-body">
+                    {% for s in data.skills %}
+                        <p class="skills-list">
+                            <strong>{{ s.title }}</strong>: {{ s.skills_list | join(', ') }}
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
+
