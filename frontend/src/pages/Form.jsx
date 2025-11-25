@@ -49,7 +49,7 @@ function Form() {
 
     async function onSubmit() {
         try {
-            const response = await fetch("http://localhost:5000/test", {
+            const response = await fetch("http://localhost:5000/api/test", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
