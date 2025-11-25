@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { emptySkill } from "$/models/resume";
 import SectionTitle from "$/components/other/SectionTitle";
 import Button1 from "$/components/buttons/Button1";
 import DeleteButton from "$/components/buttons/DeleteButton";
@@ -8,13 +8,7 @@ import Input2 from "$/components/inputs/Input2";
 
 function SkillsSection({ data, setData }) {
     function addSkill() {
-        setData([
-            ...data,
-            {
-                title: "",
-                skillsList: []
-            }
-        ])
+        setData([...data, emptySkill])
     }
 
     function deleteSkill(index) {

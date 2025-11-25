@@ -1,3 +1,4 @@
+import { emptyProject } from "$/models/resume";
 import SectionTitle from "$/components/other/SectionTitle";
 import Input1 from "$/components/inputs/Input1";
 import DateInput from "$/components/inputs/DateInput";
@@ -7,18 +8,7 @@ import DeleteButton from "$/components/buttons/DeleteButton";
 
 function ProjectsSection({ data, setData }) {
     function addProject() {
-        setData([
-            ...data,
-            {
-                title: "",
-                organization: "",
-                location: "",
-                isCurrent: false,
-                from: "",
-                to: "",
-                description: [],
-            }
-        ])
+        setData([...data, emptyProject])
     }
 
     function deleteProject(index) {

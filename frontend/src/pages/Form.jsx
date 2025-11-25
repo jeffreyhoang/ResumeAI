@@ -8,6 +8,8 @@ import PublicationsSection from "$/components/sections/PublicationsSection";
 import ProjectsSection from "$/components/sections/ProjectsSection";
 import SkillsSection from "$/components/sections/SkillsSection";
 import Divider from "$/components/other/Divider";
+import PageTitle from "$/components/other/PageTitle";
+import Button1 from "$/components/buttons/Button1"
 
 function Form() {
     const [personalInfo, setPersonalInfo] = useState({
@@ -34,9 +36,41 @@ function Form() {
 
     const [skills, setSkills] = useState([]);
 
+    const formData = {
+        personalInfo,
+        introduction,
+        links,
+        educations,
+        experiences,
+        publications,
+        projects,
+        skills
+    };
+
+    async function onSubmit() {
+        try {
+            const response = await fetch("http://localhost:5000/test", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+            console.log("Backend responded:", result);
+
+        } catch (error) {
+            console.error("Error sending data:", error);
+        }
+    }
+
     return (
         <div className="min-h-screen bg-gray-200 flex items-start justify-center py-10">
             <div className="bg-white shadow-md rounded-lg w-full max-w-3xl p-10 flex flex-col gap-8">
+                <div className="flex justify-center">
+                    <PageTitle title="ResumeAI" />
+                </div>
                 <div>
                     <PersonalInformationSection data={personalInfo} setData={setPersonalInfo} />
                 </div>
@@ -81,6 +115,12 @@ function Form() {
 
                 <div>
                     <SkillsSection data={skills} setData={setSkills} />
+                </div>
+
+                <Divider />
+
+                <div className="flex justify-center">
+                    <Button1 text="Generate" onClick={onSubmit} />
                 </div>
 
             </div>

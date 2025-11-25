@@ -1,8 +1,10 @@
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, make_response, request, jsonify
+from flask_cors import CORS
 from weasyprint import HTML, CSS
 import os
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 data = {
     "name": "Jeffrey Hoang",
@@ -99,6 +101,20 @@ data = {
     ]
 }
 
+@app.route("/test", methods=["POST", "OPTIONS"])
+def test():
+    if request.method == "OPTIONS":
+        # Preflight request
+        return jsonify({"status": "ok"}), 200
+
+    data = request.get_json()  
+    print("\n=== RECEIVED FROM FRONTEND ===")
+    print(data)
+    print("==============================\n")
+
+    return jsonify({"status": "ok", "received": True})
+
+
 @app.route("/")
 def preview():
     # Just render the HTML for browser preview
@@ -124,4 +140,4 @@ def pdf():
     return response
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000, debug=True)

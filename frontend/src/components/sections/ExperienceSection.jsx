@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { emptyExperience } from "$/models/resume";
 import SectionTitle from "$/components/other/SectionTitle";
 import Input1 from "$/components/inputs/Input1";
 import DateInput from "$/components/inputs/DateInput";
@@ -8,21 +8,7 @@ import DeleteButton from "$/components/buttons/DeleteButton";
 
 function ExperienceSection({ data, setData }) {
     function addExperience() {
-        setData([
-            ...data,
-            {
-                title: "",
-                company: "",
-                location: "",
-                supervisorName: "",
-                supervisorTitle: "",
-                supervisorDegree: "",
-                isCurrent: false,
-                from: "",
-                to: "",
-                description: [],
-            }
-        ])
+        setData([...data, emptyExperience])
     }
 
     function deleteExperience(index) {

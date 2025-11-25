@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { emptyPublication } from "$/models/resume";
 import SectionTitle from "$/components/other/SectionTitle";
 import Button1 from "$/components/buttons/Button1";
 import DeleteButton from "$/components/buttons/DeleteButton";
@@ -7,15 +7,7 @@ import Input2 from "$/components/inputs/Input2";
 
 function PublicationsSection({ data, setData }) {
     function addPublication() {
-        setData([
-            ...data,
-            {
-                title: "",
-                date: "",
-                authors: [],
-                doi: ""
-            }
-        ])
+        setData([...data, emptyPublication])
     }
 
     function deletePublication(index) {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { emptyEducation } from "$/models/resume";
 import SectionTitle from "$/components/other/SectionTitle";
 import Input1 from "$/components/inputs/Input1";
 import DateInput from "$/components/inputs/DateInput";
@@ -8,19 +8,7 @@ import DeleteButton from "$/components/buttons/DeleteButton";
 
 function EducationSection({ data, setData }) {
     function addEducation() {
-        setData([
-            ...data,
-            {
-                school: "",
-                degree: "",
-                major: "",
-                gpa: "",
-                from: "",
-                to: "",
-                coursework: [],
-                awards: [],
-            }
-        ])
+        setData([...data, emptyEducation])
     }
 
     function deleteEducation(index) {
