@@ -8,7 +8,7 @@ import Input2 from "$/components/inputs/Input2";
 
 function SkillsSection({ data, setData }) {
     function addSkill() {
-        setData([...data, emptySkill])
+        setData([...data, emptySkill()])
     }
 
     function deleteSkill(index) {

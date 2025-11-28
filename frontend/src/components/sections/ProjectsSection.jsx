@@ -8,7 +8,7 @@ import DeleteButton from "$/components/buttons/DeleteButton";
 
 function ProjectsSection({ data, setData }) {
     function addProject() {
-        setData([...data, emptyProject])
+        setData([...data, emptyProject()])
     }
 
     function deleteProject(index) {

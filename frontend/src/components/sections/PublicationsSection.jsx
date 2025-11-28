@@ -7,7 +7,7 @@ import Input2 from "$/components/inputs/Input2";
 
 function PublicationsSection({ data, setData }) {
     function addPublication() {
-        setData([...data, emptyPublication])
+        setData([...data, emptyPublication()])
     }
 
     function deletePublication(index) {

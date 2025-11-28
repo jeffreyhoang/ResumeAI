@@ -8,7 +8,7 @@ import DeleteButton from "$/components/buttons/DeleteButton";
 
 function EducationSection({ data, setData }) {
     function addEducation() {
-        setData([...data, emptyEducation])
+        setData([...data, emptyEducation()])
     }
 
     function deleteEducation(index) {

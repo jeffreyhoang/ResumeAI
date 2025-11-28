@@ -12,15 +12,15 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 p, li {
-    font-size: 12px; 
+    font-size: 14px; 
     line-height: 1.4;
 }
 

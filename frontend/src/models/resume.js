@@ -1,45 +1,55 @@
-export const emptyEducation = {
-    school: "",
-    degree: "",
-    major: "",
-    gpa: "",
-    from: "",
-    to: "",
-    coursework: [],
-    awards: [],
+export function emptyEducation() {
+    return {
+        school: "",
+        degree: "",
+        major: "",
+        gpa: "",
+        from: "",
+        to: "",
+        coursework: [],
+        awards: [],
+    }
 };
 
-export const emptyExperience = {
-    title: "",
-    company: "",
-    location: "",
-    supervisorName: "",
-    supervisorTitle: "",
-    supervisorDegree: "",
-    isCurrent: false,
-    from: "",
-    to: "",
-    description: [],
+export function emptyExperience() {
+    return {
+        title: "",
+        company: "",
+        location: "",
+        supervisorName: "",
+        supervisorTitle: "",
+        supervisorDegree: "",
+        isCurrent: false,
+        from: "",
+        to: "",
+        description: [],
+    }
 };
 
-export const emptyPublication = {
-    title: "",
-    date: "",
-    authors: [],
-    doi: ""
+export function emptyPublication() {
+    return {
+        title: "",
+        date: "",
+        authors: [],
+        doi: ""
+    }
 };
 
-export const emptyProject = {
-    title: "",
-    organization: "",
-    location: "",
-    isCurrent: false,
-    from: "",
-    to: "",
-    description: [],
+export function emptyProject() {
+    return {
+        title: "",
+        organization: "",
+        location: "",
+        isCurrent: false,
+        from: "",
+        to: "",
+        description: [],
+    }
 };
 
-export const emptySkill = {
-    title: "",
-    skillsList: []
+export function emptySkill() {
+    return {
+        title: "",
+        skillsList: []
+    }
 };

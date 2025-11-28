@@ -3,43 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Resume</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="page">
         <div class="heading">
             <div class="name-block">
-                <h1 class="name">{{ data.name }}</h1>
+                <h1 class="name">{{ data.personalInfo.name }}</h1>
             </div>
 
             <div class="contact">
-                <p class="contact-item">{{ data.location }}</p>
-                <p class="contact-item">{{ data.email }}</p>
-                <p class="contact-item">{{ data.phone_number }}</p>
+                {% if data.personalInfo.location %}
+                    <p class="contact-item">{{ data.personalInfo.location }}</p>
+                {% endif %}
+                {% if data.personalInfo.phone %}
+                    <p class="contact-item">{{ data.personalInfo.phone }}</p>
+                {% endif %}
+                {% if data.personalInfo.email %}
+                    <p class="contact-item">{{ data.personalInfo.email }}</p>
+                {% endif %}
+                {% if data.personalInfo.email %}
+                    <p class="contact-item">{{ data.personalInfo.email }}</p>
+                {% endif %}
+
                 {% for link in data.links %}
                     <p class="contact-item">{{ link }}</p>
                 {% endfor %}
             </div>
         </div>
 
-        {% if data.introduction %}
+        {% if data.introduction.isAdded %}
             <div class="section introduction">
                 <h2 class="section-title">Introduction</h2>
                 <div class="section-body">
-                    <p>{{ data.introduction }}</p>
+                    <p>{{ data.introduction.text }}</p>
                 </div>
             </div>
         {% endif %}
 
-        {% if data.education %}
+        {% if data.educations %}
             <div class="section education">
                 <h2 class="section-title">Education</h2>
                 <div class="section-body">
-                    {% for e in data.education %}
+                    {% for e in data.educations %}
                         <div class="item">
                             <div class="item-title">
-                                <p><strong>{{ e.name }}</strong></p>
-                                <p>{{ e.start_date }} - {{ e.end_date}}</p>
+                                <p><strong>{{ e.school }}</strong></p>
+                                <p>{{ e.from }} - {{ e.to }}</p>
                             </div>
                             <div class="major-gpa">
                                 <p>{{ e.degree }} in {{ e.major }}</p>
@@ -47,7 +56,7 @@
                             </div>
                             <div class="item-body">
                                 <ul>
-                                    <li><strong>Expected Graduation Date</strong>: {{ e.end_date }}</li>
+                                    <li><strong>Expected Graduation Date</strong>: {{ e.expected }}</li>
                                     {% if e.coursework %}
                                         <li>
                                             <strong>Relevant Coursework</strong>: {{ e.coursework | join(', ') }}
@@ -74,16 +83,16 @@
                         <div class="item">
                             <div class="item-title">
                                 <p><strong>{{ e.title }}</strong></p>
-                                <p>{{ e.start_date}} - {{ e.end_date}}</p>
+                                <p>{{ e.from }} - {{ e.to }}</p>
                             </div>
                             <div class="location">
                                 <p>{{ e.company }} | {{ e.location}}</p>
                             </div>
-                            {% if e.supervisor.name %}
+                            {% if e.supervisorName %}
                                 <div class="supervisor">
                                     <p>
                                         <em>
-                                            Supervisor:<strong>{{ e.supervisor.name }}{% if e.supervisor.degree %}, {{ e.supervisor.degree }}{% endif %}</strong>{% if e.supervisor.title %}, {{ e.supervisor.title }}{% endif %}
+                                            Supervisor:<strong>{{ e.supervisorName }}{% if e.supervisorDegree %}, {{ e.supervisorDegree }}{% endif %}</strong>{% if e.supervisorTitle %}, {{ e.supervisorTitle }}{% endif %}
                                         </em>
                                     </p>
                                 </div>
@@ -131,11 +140,11 @@
                         <div class="item">
                             <div class="item-title">
                                 <p><strong>{{ p.title }}</strong></p>
-                                <p>{{ p.start_date }} - {{ p.end_date }}</p>
+                                <p>{{ p.from }} – {{ p.to }}</p>
                             </div>
-                            {% if p.association.name %}
+                            {% if p.organization %}
                                 <div class="location">
-                                    <p>{{ p.association.name }} | {{ p.association.location }}</p>
+                                    <p>{{ p.organization }} | {{ p.location }}</p>
                                 </div>
                             {% endif %}
                             <div class="item-body">
@@ -157,7 +166,7 @@
                 <div class="section-body">
                     {% for s in data.skills %}
                         <p class="skills-list">
-                            <strong>{{ s.title }}</strong>: {{ s.skills_list | join(', ') }}
+                            <strong>{{ s.title }}</strong>: {{ s.skillsList | join(', ') }}
                         </p>
                     {% endfor %}
                 </div>

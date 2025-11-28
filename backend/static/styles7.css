@@ -1,0 +1,87 @@
+/* ===== Base layout ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+p, li {
+    font-size: 16px; 
+    line-height: 1.2;
+}
+
+/* ===== Page ===== */
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 800px;
+    background: #ffffff;
+}
+
+/* ===== Header ===== */
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.contact-item:not(:last-child)::after {
+    content: " |";
+    margin-left: 4px;
+}
+
+
+/* ===== Sections ===== */
+.section-title {
+    border-bottom: 1px solid #000000;
+    padding-bottom: 4px;
+}
+
+.section-body {
+    margin-top: 4px;
+}
+
+/* ===== Section Bodies ===== */
+.item {
+    margin-bottom: 8px;
+}
+
+.item-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-body {
+    padding-left: 16px;
+}
+
+/* ===== Education ===== */
+.major-gpa {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

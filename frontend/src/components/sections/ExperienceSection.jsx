@@ -8,7 +8,7 @@ import DeleteButton from "$/components/buttons/DeleteButton";
 
 function ExperienceSection({ data, setData }) {
     function addExperience() {
-        setData([...data, emptyExperience])
+        setData([...data, emptyExperience()])
     }
 
     function deleteExperience(index) {
