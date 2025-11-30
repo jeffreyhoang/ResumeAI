@@ -1,5 +1,7 @@
+const API_URL = "http://localhost:5000";
+
 export async function generatePDF(data) {
-    const response = await fetch("http://localhost:5000/api/generate_pdf", {
+    const response = await fetch(`${API_URL}/api/generate_pdf`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -9,7 +11,7 @@ export async function generatePDF(data) {
 }
 
 export async function generateRecommendation(data) {
-    const response = await fetch("http://localhost:5000/api/generate_recommendation", {
+    const response = await fetch(`${API_URL}/api/generate_recommendation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
