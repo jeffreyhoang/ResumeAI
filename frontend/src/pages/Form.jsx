@@ -8,41 +8,36 @@ import PublicationsSection from "$/components/sections/PublicationsSection";
 import ProjectsSection from "$/components/sections/ProjectsSection";
 import SkillsSection from "$/components/sections/SkillsSection";
 import Divider from "$/components/other/Divider";
-import PageTitle from "$/components/other/PageTitle";
-import Button1 from "$/components/buttons/Button1"
 import Error from "$/components/other/Error";
 import Slider from "$/components/other/Slider";
+import PageTitle from "$/components/other/PageTitle";
+import AIRecommendationPanel from "$/components/other/AIRecommendationPanel";
+import Button1 from "$/components/buttons/Button1";
+import Button2 from "$/components/buttons/Button2";
+import Button3 from "$/components/buttons/Button3";
+import { generatePDF, generateRecommendation } from "$/api/resume_api";
 
 function Form() {
+    const [rec, setRec] = useState("");
+    const [isRecLoading, setIsRecLoading] = useState(false);
     const [size, setSize] = useState(5);
-
     const [personalInfo, setPersonalInfo] = useState({
         name: "",
         location: "",
         email: "",
         phone: ""
     });
-
     const [introduction, setIntroduction] = useState({
         isAdded: false,
         text: ""
     });
-
     const [links, setLinks] = useState([]);
-
     const [educations, setEducations] = useState([]);
-
     const [experiences, setExperiences] = useState([]);
-
     const [publications, setPublications] = useState([]);
-
     const [projects, setProjects] = useState([]);
-
     const [skills, setSkills] = useState([]);
-
     const [errors, setErrors] = useState([]);
-
-    const [value, setValue] = useState();
 
     const formData = {
         personalInfo,
@@ -113,24 +108,62 @@ function Form() {
         return newErrors;
     }
 
-    async function onSubmit() {
+    function onClear() {
+        setSize(5);
+        setPersonalInfo({
+            name: "",
+            location: "",
+            email: "",
+            phone: ""
+        });
+        setIntroduction({
+            isAdded: false,
+            text: ""
+        });
+        setLinks([]);
+        setEducations([]);
+        setExperiences([]);
+        setPublications([]);
+        setProjects([]);
+        setSkills([]);
+        setErrors([]);
+        setRec("");
+        window.scrollTo({ top: 0, behavior: "smooth" });   // scrolls to top to show
+    }
+
+    async function onGenerateResume() {
         const validationErrors = validateForm();
 
         if (validationErrors.length == 0) {
             try {
-                const response = await fetch("http://localhost:5000/api/generate", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(formData)   // this sends your data
-                });
+                const response = await generatePDF(formData);
 
                 const blob = await response.blob();   // get back PDF data
                 const url = URL.createObjectURL(blob);
 
                 window.open(url, "_blank");   // opens PDF in a new tab
-
             } catch (error) {
                 console.error("Error sending data:", error);
+            }
+        } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });   // scrolls to top to show
+        }
+    }
+
+    async function onGenerateRecommendation() {
+        const validationErrors = validateForm();
+
+        if (validationErrors.length == 0) {
+            try {
+                setIsRecLoading(true);
+                const response = await generateRecommendation(formData);
+                const data = await response.json();
+                setRec(data);
+            } catch (error) {
+                console.error("Error sending data:", error);
+            } finally {
+                setIsRecLoading(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
             }
         } else {
             window.scrollTo({ top: 0, behavior: "smooth" });   // scrolls to top to show
@@ -144,6 +177,8 @@ function Form() {
                 <div className="flex justify-center">
                     <PageTitle title="ResumeAI" />
                 </div>
+
+                <AIRecommendationPanel rec={rec}/>
 
                 <div className="flex flex-col gap-2">
                     {errors.map((error, i) => (
@@ -205,13 +240,19 @@ function Form() {
 
                 <Divider />
 
-                <div className="flex justify-center">
-                    <Button1 text="Generate" onClick={onSubmit} />
+                <div className="flex flex-col gap-2">
+                    <div className="flex justify-center">
+                        <Button3 text={isRecLoading ? "Loading..." : "AI Recommendation"} onClick={onGenerateRecommendation} />
+                    </div>
+                    <div className="flex justify-center">
+                        <Button1 text="Generate Resume" onClick={onGenerateResume} />
+                    </div>
+                    <div className="flex justify-center">
+                        <Button2 text="Clear" onClick={onClear} />
+                    </div>
                 </div>
-
             </div>
         </div>
-
     )
 };
 
