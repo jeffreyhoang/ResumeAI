@@ -47,7 +47,7 @@ This is the main form where users enter their personal information, education, e
 
 After filling out the form, users can request AI-powered feedback on their resume content.
 
-![AI recommendations](./screenshots/ai-recommendations.png)
+![AI recommendations](./screenshots/ai.png)
 
 ---
 
