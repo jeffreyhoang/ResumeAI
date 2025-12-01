@@ -1,6 +1,6 @@
 # ResumeAI
 
-ResumeAI is a full-stack application that helps users quickly create and refine a professional resume. Users enter their information (personal details, experience, education, projects, skills, etc.), see it formatted in a resume layout, resize it easily, and generate AI-powered recommendations to improve their resume content.
+ResumeAI is an application that helps users quickly create and refine a professional resume. Users enter their personal information, relevant links, education, experience, publications, projects, and/or skills and see their qualifications in a professional resume layout. The application also enables users to quickly resize their resume content and receive AI-powered recommendations for efficient refinement. 
 
 ---
 
