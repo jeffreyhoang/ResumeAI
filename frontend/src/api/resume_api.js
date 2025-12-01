@@ -1,5 +1,5 @@
-// const API_URL = "http://localhost:5000";
-const API_URL = "https://resumeai-68o5.onrender.com";
+const API_URL = "http://localhost:5000";
+// const API_URL = "https://resumeai-68o5.onrender.com";
 
 export async function generatePDF(data) {
     const response = await fetch(`${API_URL}/api/generate_pdf`, {
