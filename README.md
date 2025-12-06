@@ -4,7 +4,7 @@ ResumeAI is an application that helps users quickly create and refine a professi
 
 ---
 
-## Quick Start
+## Quick Start (Mac)
 
 1. Download or clone this repository:
 
