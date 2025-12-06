@@ -1,5 +1,4 @@
 from datetime import datetime, date
-import json
 
 def format_date(date_str):
     if not date_str:
