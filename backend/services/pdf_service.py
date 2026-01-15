@@ -1,3 +1,4 @@
+
 from weasyprint import HTML, CSS
 from flask import render_template
 import os
@@ -22,3 +23,4 @@ def generate_pdf(data):
     )
 
     return pdf_path
+

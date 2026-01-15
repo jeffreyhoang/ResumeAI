@@ -1,11 +1,30 @@
-function Button3({ text, onClick }) {
+function Button3({ icon, onClick, loading = false}) {
     return (
-        <div>
-            <button onClick={onClick} className="text-white text-lg bg-gradient-to-r hover:bg-gradient-to-l from-purple-600 to-blue-800 py-1 px-4 rounded-full hover:cursor-pointer active:scale-95 transition-all">
-                {text}
+        <div className="group fixed bottom-6 right-6 z-50">
+            <button
+                type="button"
+                onClick={onClick}
+                disabled={loading}
+                className="
+                    w-12 h-12 rounded-full
+                    flex items-center justify-center
+                    bg-white
+                    hover:scale-110 hover:cursor-pointer
+                    transition-transform duration-200
+                    disabled:opacity-60
+                "
+            >
+                {loading ? (
+                    <span className="w-6 h-6 animate-spin rounded-full border-2 border-black border-t-transparent" />
+                    ) : (
+                    <img
+                        src={icon}
+                        className="w-6 h-6"
+                    />
+                )}
             </button>
         </div>
-    )
-};
+    );
+}
 
 export default Button3;

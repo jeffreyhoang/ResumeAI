@@ -16,6 +16,7 @@ import Button1 from "$/components/buttons/Button1";
 import Button2 from "$/components/buttons/Button2";
 import Button3 from "$/components/buttons/Button3";
 import { generatePDF, generateRecommendation } from "$/api/resume_api";
+import ai from "$/assets/ai.png";
 
 function Form() {
     const [rec, setRec] = useState("");
@@ -242,13 +243,18 @@ function Form() {
 
                 <div className="flex flex-col gap-2">
                     <div className="flex justify-center">
-                        <Button3 text={isRecLoading ? "Loading..." : "AI Recommendation"} onClick={onGenerateRecommendation} />
-                    </div>
-                    <div className="flex justify-center">
                         <Button1 text="Generate Resume" onClick={onGenerateResume} />
                     </div>
                     <div className="flex justify-center">
                         <Button2 text="Clear" onClick={onClear} />
+                    </div>
+
+                    <div>
+                        <Button3
+                            icon={ai}
+                            loading={isRecLoading}
+                            onClick={onGenerateRecommendation}
+                        />
                     </div>
                 </div>
             </div>

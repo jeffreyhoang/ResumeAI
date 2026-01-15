@@ -52,3 +52,4 @@ def generate_recommendation_route():
 
     # Convert python dict to json
     return jsonify(result)
+

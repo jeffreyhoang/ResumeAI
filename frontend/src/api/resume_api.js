@@ -20,3 +20,4 @@ export async function generateRecommendation(data) {
 
     return response;
 }
+
