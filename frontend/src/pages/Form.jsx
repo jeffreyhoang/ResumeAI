@@ -20,6 +20,7 @@ import ai from "$/assets/ai.png";
 
 function Form() {
     const [rec, setRec] = useState("");
+    const [isResumeLoading, setIsResumeLoading] = useState(false);
     const [isRecLoading, setIsRecLoading] = useState(false);
     const [size, setSize] = useState(5);
     const [personalInfo, setPersonalInfo] = useState({
@@ -137,6 +138,7 @@ function Form() {
 
         if (validationErrors.length == 0) {
             try {
+                setIsResumeLoading(true);
                 const response = await generatePDF(formData);
 
                 const blob = await response.blob();   // get back PDF data
@@ -145,6 +147,8 @@ function Form() {
                 window.open(url, "_blank");   // opens PDF in a new tab
             } catch (error) {
                 console.error("Error sending data:", error);
+            } finally {
+                setIsResumeLoading(false);
             }
         } else {
             window.scrollTo({ top: 0, behavior: "smooth" });   // scrolls to top to show
@@ -242,7 +246,7 @@ function Form() {
 
                 <div className="flex flex-col gap-2">
                     <div className="flex justify-center">
-                        <Button1 text="Generate Resume" onClick={onGenerateResume} />
+                        <Button1 text="Generate Resume" onClick={onGenerateResume} loading={isResumeLoading} />
                     </div>
                     <div className="flex justify-center">
                         <Button2 text="Clear" onClick={onClear} />
