@@ -37,6 +37,7 @@ ResumeAI is an application that helps users quickly create and refine a professi
 
 ### 1. Resume Input Form
 
+Click the link below to check out ResumeAI.
 [ResumeAI Demo (Google Drive)](https://drive.google.com/file/d/1TQCXTdHyQJbG6pCxYgY6pD9sxIAAa5Ll/view?usp=drive_link)
 
 
