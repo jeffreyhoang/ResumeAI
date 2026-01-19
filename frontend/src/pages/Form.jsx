@@ -259,6 +259,13 @@ function Form() {
                             onClick={onGenerateRecommendation}
                         />
                     </div>
+                    {(isResumeLoading || isRecLoading) && (
+                        <p className="font-body text-center text-sm text-red-600">
+                            Note: The backend is hosted on Render’s free tier and may take up to ~30 seconds
+                            to wake up after inactivity.
+                        </p>
+                    )}
+
                 </div>
             </div>
         </div>
