@@ -20,10 +20,11 @@ def generate_pdf_route():
     data = format_data(data)
     print("After\n", json.dumps(data, indent=4))
 
-    pdf_path = generate_pdf(data)
+    pdf_io = generate_pdf(data)
     return send_file(
-        pdf_path,
+        pdf_io,
         mimetype="application/pdf",
+        as_attachment=True,
         download_name="resume.pdf"
     )
 
