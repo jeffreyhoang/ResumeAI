@@ -172,9 +172,8 @@ function Form() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-200 flex items-start justify-center py-10">
-            <div className="bg-white shadow-md rounded-lg w-full max-w-3xl p-10 flex flex-col gap-8">
-
+        <div className="min-h-screen bg-gray-200 flex items-start justify-center md:py-10">
+            <div className="bg-white shadow-lg md:rounded-lg w-full max-w-3xl p-6 md:p-10 flex flex-col gap-8">
                 <div className="flex justify-center">
                     <PageTitle title="ResumeAI" />
                 </div>

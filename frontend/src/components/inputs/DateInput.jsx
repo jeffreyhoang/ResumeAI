@@ -1,6 +1,6 @@
 function DateInput({ isCurrent, fromValue, toValue, onFromChange, onToChange }) {
     return (
-        <div className="flex gap-4">
+        <div className="font-body flex gap-4">
             <div className="flex flex-col gap-1 w-40">
                 <label className="text-sm">
                     From

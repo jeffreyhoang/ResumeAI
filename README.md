@@ -33,31 +33,11 @@ ResumeAI is an application that helps users quickly create and refine a professi
 | AI          | OpenAI API                                               |
 
 
-## Screenshots
+## Demo
 
 ### 1. Resume Input Form
 
-This is the main form where users enter their personal information, education, experience, projects, links, and skills.
-
-[ResumeAI Demo (Google Drive)](https://drive.google.com/file/d/1quAot2ZlNzNNG1wARFUmbipsi164i240/view?usp=drive_link)
-
----
-
-### 2. AI Recommendations Panel
-
-After filling out the form, users can request AI-powered feedback on their resume content.
-
-![AI recommendations](./screenshots/ai.png)
-
----
-
-### 3. Generated PDF Resume
-
-The app formats the data into a clean resume layout and generates a downloadable PDF.
-
-[PDF Preview (PDF)](./screenshots/output.pdf)
-
-
+[ResumeAI Demo (Google Drive)](https://drive.google.com/file/d/1TQCXTdHyQJbG6pCxYgY6pD9sxIAAa5Ll/view?usp=drive_link)
 
 
 

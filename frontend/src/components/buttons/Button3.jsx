@@ -12,6 +12,7 @@ function Button3({ icon, onClick, loading = false}) {
                     hover:scale-110 hover:cursor-pointer
                     transition-transform duration-200
                     disabled:opacity-60
+                    shadow-lg
                 "
             >
                 {loading ? (

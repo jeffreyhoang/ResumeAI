@@ -14,7 +14,7 @@ function AIRecommendationPanel({ rec }) {
         <div className={"rounded-sm border-1 border-blue-200 bg-blue-50 text-blue-800 shadow-sm p-2"}>
             {/* Header */}
             <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
+                <div className="font-head flex items-center gap-2">
                     <div className="h-6 w-6 rounded-full bg-blue-800 flex items-center justify-center text-sm font-semibold text-white">
                         AI
                     </div>
@@ -24,7 +24,7 @@ function AIRecommendationPanel({ rec }) {
                 <button
                     type="button"
                     onClick={() => setExpanded((v) => !v)}
-                    className="text-[10px] px-2 py-1 rounded-full border-1 border-blue-200 shadow-sm bg-white text-blue-800 hover:bg-blue-50 hover:cursor-pointer active:scale-95 transition"
+                    className="font-head text-[10px] px-2 py-1 rounded-full border-1 border-blue-200 shadow-sm bg-white text-blue-800 hover:bg-blue-50 hover:cursor-pointer active:scale-95 transition"
                 >
                 {expanded ? "Hide details" : "Show details"}
                 </button>
@@ -43,17 +43,17 @@ function AIRecommendationPanel({ rec }) {
                     {/* Introduction */}
                     {introduction && (
                         <div>
-                            <p className={"text-lg font-semibold mb-1"}>
+                            <p className={"font-head text-lg font-semibold mb-1"}>
                                 Introduction
                             </p>
                             <div className="space-y-2">
                                 <div className="bg-white border border-blue-100 rounded-lg px-2 py-2">
-                                    <span className="text-md font-semibold">Recommendation</span>
-                                    <p className="text-sm text-blue-800">{introduction.comment}</p>
+                                    <span className="font-head text-md font-semibold">Recommendation</span>
+                                    <p className="font-body text-sm text-blue-800">{introduction.comment}</p>
                                 </div>
                                 <div className="bg-white border border-blue-100 rounded-lg px-2 py-2">
-                                    <span className="text-md font-semibold">Example</span>
-                                    <p className="text-sm text-blue-800">{introduction.suggested_text}</p>
+                                    <span className="font-head text-md font-semibold">Example</span>
+                                    <p className="font-body text-sm text-blue-800">{introduction.suggested_text}</p>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ function AIRecommendationPanel({ rec }) {
                     {/* Experiences */}
                     {experiences.length > 0 && (
                         <div>
-                            <p className={"text-lg font-semibold mb-1"}>
+                            <p className={"font-head text-lg font-semibold mb-1"}>
                                 Experiences
                             </p>
                             <div className="space-y-2">
@@ -72,22 +72,22 @@ function AIRecommendationPanel({ rec }) {
                                         className="bg-white border border-blue-100 rounded-lg px-2 py-2"
                                     >
                                         <div className="flex justify-between items-center">
-                                            <span className={`text-md font-semibold`}>
+                                            <span className={`font-head text-md font-semibold`}>
                                                 {exp.original_title}
                                             </span>
-                                            <span className="text-[10px] text-blue-800">
+                                            <span className="font-head text-[10px] text-blue-800">
                                                 #{exp.index + 1}
                                             </span>
                                         </div>
 
                                         {exp.comment && (
-                                            <p className={"text-sm text-blue-800"}>
+                                            <p className={"font-body text-sm text-blue-800"}>
                                                 {exp.comment}
                                             </p>
                                         )}
 
                                         {Array.isArray(exp.suggested_bullets) && exp.suggested_bullets.length > 0 && (
-                                            <ul className={"list-disc list-inside text-sm text-blue-800"}>
+                                            <ul className={"font-body list-disc list-inside text-sm text-blue-800"}>
                                                 {exp.suggested_bullets.map((b, i) => (
                                                     <li key={i}>{b}</li>
                                                 ))}
@@ -102,7 +102,7 @@ function AIRecommendationPanel({ rec }) {
                     {/* Projects */}
                     {projects.length > 0 && (
                         <div>
-                            <p className={"text-lg font-semibold mb-1"}>
+                            <p className={"font-head text-lg font-semibold mb-1"}>
                                 Projects
                             </p>
                             <div className="space-y-2">
@@ -112,22 +112,22 @@ function AIRecommendationPanel({ rec }) {
                                         className="bg-white border border-blue-100 rounded-lg px-2 py-2"
                                     >
                                         <div className="flex justify-between items-center">
-                                            <span className={`text-md font-semibold`}>
+                                            <span className={`font-head text-md font-semibold`}>
                                                 {project.original_title}
                                             </span>
-                                            <span className="text-[10px] text-blue-800">
+                                            <span className="font-head text-[10px] text-blue-800">
                                                 #{project.index + 1}
                                             </span>
                                         </div>
 
                                         {project.comment && (
-                                            <p className={"text-sm text-blue-800"}>
+                                            <p className={"font-body text-sm text-blue-800"}>
                                                 {project.comment}
                                             </p>
                                         )}
 
                                         {Array.isArray(project.suggested_bullets) && project.suggested_bullets.length > 0 && (
-                                            <ul className={"list-disc list-inside text-sm text-blue-800"}>
+                                            <ul className={"font-body list-disc list-inside text-sm text-blue-800"}>
                                                 {project.suggested_bullets.map((b, i) => (
                                                     <li key={i}>{b}</li>
                                                 ))}
@@ -142,12 +142,12 @@ function AIRecommendationPanel({ rec }) {
                     {/* Skills */}
                     {skills && (
                         <div>
-                            <p className={"text-lg font-semibold mb-1"}>
+                            <p className={"font-head text-lg font-semibold mb-1"}>
                                 Skills
                             </p>
                             <div className="bg-white border border-blue-100 rounded-lg px-2 py-2">
                                 {skills.comment && (
-                                    <p className={"text-sm text-blue-800 mb-1"}>
+                                    <p className={"font-body text-sm text-blue-800 mb-1"}>
                                         {skills.comment}
                                     </p>
                                 )}
@@ -161,10 +161,10 @@ function AIRecommendationPanel({ rec }) {
                                             }
                                             return (
                                                 <div key={i}>
-                                                    <p className={"text-md font-semibold"}>
+                                                    <p className={"font-head text-md font-semibold"}>
                                                         {group.group_name}
                                                     </p>
-                                                    <p className="text-sm">
+                                                    <p className="font-body text-sm">
                                                         {Array.isArray(group.items) ? group.items.join(", ") : ""}
                                                     </p>
                                                 </div>

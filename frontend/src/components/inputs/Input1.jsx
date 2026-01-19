@@ -1,6 +1,6 @@
 function Input1({ label, value, isRequired, onChange }) {
     return (
-        <div className="flex flex-col gap-1">
+        <div className="font-body flex flex-col gap-1">
             <label className="text-sm">
                 {label}
                 {isRequired && <span className="text-red-500 text-sm">*</span>}

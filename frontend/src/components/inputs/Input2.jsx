@@ -13,7 +13,7 @@ function Input2({ label, values, isRequired=false, onAdd, onDelete }) {
     }
 
     return (
-        <div className="flex flex-col gap-1">
+        <div className="font-body flex flex-col gap-1">
             <label className="text-sm">
                 {label}
                 {isRequired && (<span className="text-red-500 text-sm">*</span>)}
